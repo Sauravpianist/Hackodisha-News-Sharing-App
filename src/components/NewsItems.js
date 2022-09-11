@@ -1,19 +1,10 @@
 import React, { Component } from 'react'
-import PopUp from './PopUp'
 import {
   FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,TelegramShareButton,TelegramIcon,WhatsappShareButton,WhatsappIcon
 } from "react-share";
 
-// import {useState} from 'react';
 
 export default class NewsItems extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonPopup: false
-    };
-  }
-
   render() {
     let {title, description, imageUrl, newsUrl, author, date, source}= this.props;
     return (
@@ -28,8 +19,6 @@ export default class NewsItems extends Component {
     <p className="card-text">{description}...</p>
     <p className="card-text"><small class="text-muted">by {!author?"unknown":author} on {new Date (date).toGMTString()}</small></p>
     <a  href={newsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-dark">Read more</a>
-    <button onClick={this.setState({buttonPopup: true})}>click me</button>
-
       <hr />
       {/* facebook share button */}
       <div className="socialShare">
@@ -69,11 +58,6 @@ export default class NewsItems extends Component {
       <WhatsappIcon size={28} logoFillColor="white" round={true}></WhatsappIcon>
       </WhatsappShareButton>
       </div>
-      <PopUp trigger={this.state.buttonPopup} >
-                        <h3>My popup</h3>
-                    </PopUp>
-
-
   </div>
 </div>
       

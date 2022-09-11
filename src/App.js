@@ -1,16 +1,12 @@
 import './App.css';
-
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 // import { BrowserRouter } from "react-router-dom";
 import NewsComponents from './components/NewsComponents';
-// import React from "react";
 import {
   Routes,
   Route
 } from "react-router-dom";
-import SignUp from './components/SignUp';
-
 export default class App extends Component {
   render() {
 
@@ -28,7 +24,6 @@ export default class App extends Component {
         <Route exact path="/science" element={<NewsComponents key="science" country="in" category="science" />} />
         <Route exact path="/sports" element={<NewsComponents key="sports" country="in" category="sports" />} />
         <Route exact path="/technology" element={<NewsComponents key="technology" country="in" category="technology" />} />
-        <Route exact path="/signup" element={<SignUp/>} />
         </Routes>
       </div>
 
