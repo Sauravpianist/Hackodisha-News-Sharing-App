@@ -24,6 +24,9 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
+          npm install react
+          npm update react-share
+          npm install --legacy-peer-deps
           npm run build --if-present
           npm run test --if-present
 
