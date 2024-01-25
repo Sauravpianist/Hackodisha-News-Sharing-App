@@ -9,8 +9,7 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBInput,
-  MDBIcon,
-  MDBCheckbox
+  MDBIcon
 }
 from 'mdb-react-ui-kit';
 
@@ -20,11 +19,13 @@ function Signup() {
       console.log(response);
     }
   return (
+    <form action='http://localhost:5000/app/auth/createuser' method="post">
     <MDBContainer fluid>
 
       <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
         <MDBCardBody>
           <MDBRow>
+            
             <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
 
               <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
@@ -32,29 +33,25 @@ function Signup() {
               <div className="d-flex flex-row align-items-center mb-4 ">
                 <MDBIcon fas icon="user me-3" size='lg'/>
                 <MDBIcon fas icon="user " size='lg' />
-                <MDBInput label='Your Name' id='form1' type='text' className='w-100'/>
+                <MDBInput label='Your Name' name='name' id='form1' type='text' className='w-100'/>
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="envelope me-3" size='lg'/>
-                <MDBInput label='Your Email' id='form2' type='email'/>
+                <MDBInput label='Your Email' name='email' id='form2' type='email'/>
               </div>
 
               <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="lock me-3" size='lg'/>
-                <MDBInput label='Password' id='form3' type='password'/>
+                <MDBInput label='Password' name='password' id='form3' type='password'/>
               </div>
 
-              <div className="d-flex flex-row align-items-center mb-4">
+              {/* <div className="d-flex flex-row align-items-center mb-4">
                 <MDBIcon fas icon="key me-3" size='lg'/>
                 <MDBInput label='Repeat your password' id='form4' type='password'/>
-              </div>
+              </div> */}
 
-              <div className='mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-              </div>
-
-              <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
+              <MDBBtn className='mb-4' size='lg' type='submit'>Register</MDBBtn>
               <button onClick={logGoolgeuser}>Sign with Google account</button>
 
             </MDBCol>
@@ -68,6 +65,7 @@ function Signup() {
       </MDBCard>
 
     </MDBContainer>
+    </form>
   );
 }
 
